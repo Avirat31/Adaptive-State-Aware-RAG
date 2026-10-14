@@ -1,0 +1,5 @@
+base: default.yaml
+# B2: hybrid BM25+dense (RRF), always single-step
+retrieval: {method: hybrid, use_reranker: false}
+routing: {enabled: false, forced_route: single_step}
+memory: {enabled: false}

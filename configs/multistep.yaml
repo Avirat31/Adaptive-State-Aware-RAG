@@ -1,0 +1,5 @@
+base: default.yaml
+# B4: hybrid, ALWAYS multi-step, fixed iterations, no evidence-aware memory/stopping
+retrieval: {method: hybrid}
+routing: {enabled: false, forced_route: multi_step}
+memory: {enabled: false}

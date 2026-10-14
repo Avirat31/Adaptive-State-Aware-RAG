@@ -1,0 +1,5 @@
+base: default.yaml
+# B3: hybrid + reranker (lexical offline reranker by default; set reranker_method: cross_encoder for a real one)
+retrieval: {method: hybrid, use_reranker: true, reranker_method: lexical}
+routing: {enabled: false, forced_route: single_step}
+memory: {enabled: false}

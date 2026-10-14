@@ -1,0 +1,5 @@
+base: default.yaml
+# B1: BM25 only
+retrieval: {method: bm25, use_reranker: false}
+routing: {enabled: false, forced_route: single_step}
+memory: {enabled: false}

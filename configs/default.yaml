@@ -1,0 +1,26 @@
+# Default configuration. Every other config inherits from this file via `base:`.
+# Runs fully offline on the synthetic example data (hashing embedder, lexical reranker, extractive generator).
+project: {name: AdaptiveBioRAG, seed: 42, output_dir: outputs}
+dataset: {name: synthetic, split: test, data_dir: examples, limit: null}
+corpus:
+  source: jsonl
+  path: examples/sample_documents.jsonl
+  passage_size: 80          # words
+  passage_overlap: 20
+  index_dir: indexes/default
+retrieval:
+  method: hybrid
+  top_k_sparse: 50
+  top_k_dense: 50
+  top_k_fused: 10
+  rrf_k0: 60
+  dense_backend: hashing    # switch to sentence_transformers (+ dense_model) for real dense retrieval
+  use_reranker: false
+  final_evidence_k: 5
+routing: {enabled: true, method: heuristic, complexity_threshold: 0.4, forced_route: single_step}
+decomposition: {method: deterministic, max_sub_questions: 4}
+memory: {enabled: true, deduplicate: true, detect_conflicts: false, subq_support_threshold: 0.6}
+stopping: {max_iterations: 3, minimum_new_evidence: 1, evidence_coverage_threshold: 1.0, max_duplicate_ratio: 0.9}
+generation: {provider: extractive, temperature: 0.0, max_output_tokens: 512}
+evaluation: {retrieval_k: [1, 5, 10], save_predictions: true}
+logging: {level: INFO}

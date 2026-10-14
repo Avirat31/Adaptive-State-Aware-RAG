@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adaptive-biorag"
+version = "0.1.0"
+description = "Adaptive evidence-aware retrieval for multi-step biomedical QA (research code)"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["numpy>=1.24,<3", "PyYAML>=6.0,<7"]
+
+[project.optional-dependencies]
+dense = ["sentence-transformers>=2.7,<6"]          # real dense embeddings + cross-encoder rerankers
+progress = ["tqdm>=4.65"]
+eval-extra = ["rouge-score>=0.1.2"]                 # optional cross-check for the built-in ROUGE-L
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+adaptive-biorag = "adaptive_biorag.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: needs network, model weights, or credentials (deselected by default)"]
+addopts = "-m 'not integration'"

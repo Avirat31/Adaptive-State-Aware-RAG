@@ -1,0 +1,5 @@
+# Optional: real dense retrieval / cross-encoders. Install a PyTorch build FIRST for your hardware:
+#   CPU:   pip install torch --index-url https://download.pytorch.org/whl/cpu
+#   CUDA:  see https://pytorch.org/get-started/locally/
+-r requirements.txt
+sentence-transformers>=2.7,<6

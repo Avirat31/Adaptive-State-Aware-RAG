@@ -1,0 +1,4 @@
+# Core, CPU-only, offline-capable pipeline (hashing embedder, BM25, RRF, extractive generator)
+numpy>=1.24,<3
+PyYAML>=6.0,<7
+tqdm>=4.65

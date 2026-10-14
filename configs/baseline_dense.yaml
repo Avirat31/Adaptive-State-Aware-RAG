@@ -1,0 +1,5 @@
+base: default.yaml
+# B0: dense only, always single-step, no reranking
+retrieval: {method: dense, use_reranker: false}
+routing: {enabled: false, forced_route: single_step}
+memory: {enabled: false}

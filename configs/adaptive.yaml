@@ -1,0 +1,5 @@
+base: default.yaml
+# B5: adaptive routing; multi-step branch WITHOUT memory/stopping
+retrieval: {method: hybrid}
+routing: {enabled: true}
+memory: {enabled: false}

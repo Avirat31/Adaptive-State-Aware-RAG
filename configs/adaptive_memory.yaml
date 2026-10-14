@@ -1,0 +1,5 @@
+base: default.yaml
+# B6: adaptive routing + evidence-aware memory and stopping policy
+retrieval: {method: hybrid}
+routing: {enabled: true}
+memory: {enabled: true}

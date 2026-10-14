@@ -1,0 +1,4 @@
+base: ../configs/default.yaml
+# Example of a user config that overrides a few keys.
+project: {run_name: my_first_run}
+dataset: {limit: 5}
